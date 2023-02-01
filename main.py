@@ -51,7 +51,6 @@ if __name__ == '__main__':
     noDepPer.addUserWork(stepan)
     noDepPer.addUserWork(trinety)
 
-    # print(valera)
     corp.getIncoListDep()
     print(f'\nСписок сотрудников отдела: {noDepPer.depName}')
     noDepPer.getDeptListUser()
