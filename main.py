@@ -46,7 +46,7 @@ if __name__ == '__main__':
     valera = SetPersona('Валера', 18)
     stepan = SetPersona('Степан', 28)
     trinety = SetPersona('Тринети', 23)
-
+# /
     noDepPer.addUserWork(valera)
     noDepPer.addUserWork(stepan)
     noDepPer.addUserWork(trinety)
