@@ -22,7 +22,7 @@ def addPersonToDepart(person, position, dep, olddep):
         person.workPosition = position
         olddep.removeUserWork(person)
         dep.addUserWork(person)
-    else: print('Нет такой должности в отделе')
+    else: print('Нет такой должности в отделе ')
 
 
 # Press the green button in the gutter to run the script.
@@ -44,7 +44,6 @@ if __name__ == '__main__':
     Dep3.addPosWork('Начальник мечтательного отдела') #Должность
     Dep3.addPosWork('Философ') #Должность
     Dep3.addPosWork('Мыслитель') #Должность
-
 
     valera = SetPersona('Валера', 18)
     stepan = SetPersona('Степан', 28)
