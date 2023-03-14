@@ -1,3 +1,5 @@
+import color_text
+import list_tree
 import worker as w
 import departament as d
 import incorporated as i
@@ -23,24 +25,25 @@ def addPersonToDepart(person, position, dep, olddep):
     else: print('Нет такой должности в отделе')
 
 
-
-
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    corp = i.Incorporated('ООО "Рога и копыта"')
-    noDepPer = d.Departament('Безымянный')
-    Dep1 = d.Departament('Отдел навигации')
-    Dep2 = d.Departament('Вычислительный отдел')
-    Dep3 = d.Departament('Мечтательный отдел')
+    corp = i.Incorporated('ООО "Рога и копыта"')  #Организация
+    noDepPer = d.Departament(color_text.out_blue('Безымянный'))   #Отдел
+    Dep1 = d.Departament(color_text.out_blue('Отдел навигации')) #Отдел
+    Dep2 = d.Departament(color_text.out_blue('Вычислительный отдел')) #Отдел
+    Dep3 = d.Departament(color_text.out_blue('Мечтательный отдел')) #Отдел
+    corp.addDepWork(noDepPer)
     corp.addDepWork(Dep1)
     corp.addDepWork(Dep2)
     corp.addDepWork(Dep3)
-    Dep1.addPosWork('Начальник отдела')
-    Dep1.addPosWork('Зам начальника')
-    Dep1.addPosWork('Оператор')
-    Dep3.addPosWork('Начальник мечтательного отдела')
-    Dep3.addPosWork('Философ')
-    Dep3.addPosWork('Мыслитель')
+    noDepPer.addPosWork('Без должности')
+    Dep1.addPosWork('Начальник отдела') #Должность
+    Dep1.addPosWork('Зам начальника') #Должность
+    Dep1.addPosWork('Оператор') #Должность
+    Dep2.addPosWork('Начальник отдела')  # Должность
+    Dep3.addPosWork('Начальник мечтательного отдела') #Должность
+    Dep3.addPosWork('Философ') #Должность
+    Dep3.addPosWork('Мыслитель') #Должность
 
 
     valera = SetPersona('Валера', 18)
@@ -52,17 +55,21 @@ if __name__ == '__main__':
     noDepPer.addUserWork(trinety)
 
     corp.getIncoListDep()
-    print(f'\nСписок сотрудников отдела: {noDepPer.depName}')
+    print(f'\n{color_text.out_yellow("Список сотрудников отдела:")} {noDepPer.depName}')
     noDepPer.getDeptListUser()
-    print(f'\nСписок должностей отдела: {Dep1.depName}')
+    print(f'\n{color_text.out_yellow("Список должностей отдела:")} {Dep1.depName}')
     Dep1.getDeptListPos()
-    print(f'\nСписок должностей отдела: {Dep3.depName}')
+    print(f'\n{color_text.out_yellow("Список должностей отдела:")} {Dep3.depName}')
     Dep3.getDeptListPos()
     print(f'\n')
 
     addPersonToDepart(valera, 'Начальник мечтательного отдела', Dep3, noDepPer)
-    print(f'\nСписок сотрудников отдела: {Dep3.depName}')
+    addPersonToDepart(stepan, 'Философ', Dep3, noDepPer)
+    print(f'\n{color_text.out_yellow("Список сотрудников отдела:")} {Dep3.depName}')
     Dep3.getDeptListUser()
 
-    print(f'\nПроверка на удаления из старого отдела: {noDepPer.depName}')
+    print(f'\n{color_text.out_red("Проверка на удаления из старого отдела:")} {noDepPer.depName}')
     noDepPer.getDeptListUser()
+    print(f'\n')
+
+    list_tree.tree_v2(corp.corpName, corp.corpDept)
